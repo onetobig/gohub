@@ -24,6 +24,8 @@ func main() {
 	fmt.Println(config.Get("app.port"))
 
 	r := gin.New()
+
+	bootstrap.SetUpDB()
 	bootstrap.SetUpRoute(r)
 	err := r.Run(":" + config.Get("app.port"))
 	if err != nil {
